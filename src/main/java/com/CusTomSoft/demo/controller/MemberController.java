@@ -4,12 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.CusTomSoft.demo.dto.MemberDto;
 import com.CusTomSoft.demo.service.MemberService;
@@ -44,7 +39,7 @@ public class MemberController {
 	//회원가입 
 	@PostMapping("doJoin")
 	@ResponseBody
-	public String doJoin(@ModelAttribute MemberDto memberdto ) {
+	public String doJoin(@RequestBody MemberDto memberdto ) {
 		System.out.println(memberdto);
 		int success = memberservice.doJoin(memberdto);
 		System.out.println("성공:" +success);
